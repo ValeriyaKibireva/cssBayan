@@ -27,9 +27,19 @@ main {
     padding: 0.5rem;
 }
 
-li {
-    border-top: 0.1rem solid #bfbfbf;
-    padding: 1rem 0;
+ul {
+    color: #fc0097;
     font-weight: 700;
 }
 
+li {
+    border-top: 0.1rem solid #bfbfbf;
+    padding: 1rem 0;}
+
+ul:hover > li {
+    color: black;
+    background-image: url(icon/plus.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1rem;
+}
