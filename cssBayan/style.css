@@ -1,7 +1,7 @@
 html * {
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
 }
 
 body {
@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f7dfec;
+
 }
 
 header {
@@ -34,55 +35,40 @@ ul {
 
 li {
     border-top: 0.1rem solid #bfbfbf;
-    padding: 1rem 0;
     display: flex;
     flex-direction: column;
 }
 
-ul:hover > li label {
-    color: black;
-    background-image: url(icon/plus.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 1rem;
-    cursor: pointer;
-}
 
 .item-content {
-    max-height: 0;
-    overflow: hidden;
-    width: 40%;
-
-}
-
-.toggle-label + .item-content {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .toggle-label + .item-content img {
+    transform: scale(0);
+    width: 100%;
+    height: 100%;
     max-height: 50%;
     max-width: 50%;
+    transition: transform 0.3s;
 }
 
 .toggle-item:checked ~
 .item-content {
     width: 100%;
     max-height: 60%;
-    margin: 1rem auto;
 }
 
-.toggle-item .item-content {
-    transition: 2s;
+.toggle-item:hover ~ .item-content img {
+    transform: scale(1);
 }
 
 .toggle-item:hover ~
 .item-content {
-    width: 100%;
     max-height: 60%;
     margin: 1rem auto;
-    transition: 2s;
 }
 
 
@@ -100,4 +86,59 @@ ul:hover > li label {
     cursor: pointer;
 }
 
+.accordion {
+    position: relative;
+}
+
+ul:hover > .accordion .accordion__input:not(:checked) + .accordion__header {
+    color: black;
+
+    background-image: url(icon/plus.png);
+}
+
+ul:hover > .accordion .accordion__input:checked + .accordion__header {
+    background-image: url(icon/close.png);
+}
+
+ul:hover > .accordion:hover .accordion__input + .accordion__header {
+    background-image: url(icon/close.png);
+}
+
+
+.accordion .accordion__input {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.accordion .accordion__header {
+    padding: 1rem 0;
+    cursor: pointer;
+    background-size: 1rem;
+
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+
+.accordion .accordion__content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion .accordion__content > img {
+    height: 100%;
+    padding: 1rem;
+}
+
+.accordion .accordion__header:hover + .accordion__content, .accordion .accordion__input:checked + .accordion__header + .accordion__content {
+    height: 50vh;
+}
 
