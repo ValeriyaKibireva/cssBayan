@@ -133,6 +133,7 @@ ul:hover > .accordion:hover .accordion__input + .accordion__header {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .accordion .accordion__content > img {
@@ -144,7 +145,34 @@ ul:hover > .accordion:hover .accordion__input + .accordion__header {
     height: 50vh;
 }
 
-@media (max-width: 570px) and (min-width: 319px) {
+
+@media (max-width: 1180px) and (min-width: 319px) {
+
+    .toggle-label {
+        cursor: initial;
+    }
+
+    .accordion .accordion__header {
+        cursor: initial;
+    }
+
+    .accordion .accordion__content {
+        cursor: initial;
+    }
+}
+
+@media (max-width: 1180px) and (min-width: 570px) {
+    html * {
+        font-size: 1.4rem;
+    }
+}
+
+    @media (max-width: 570px) and (min-width: 319px) {
+
+    html * {
+        font-size: 1.2rem;
+    }
+
     .accordion .accordion__content > img {
         width: 100%;
     }
