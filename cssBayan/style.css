@@ -97,6 +97,8 @@ ul:hover > .accordion .accordion__input:not(:checked) + .accordion__header {
 }
 
 ul:hover > .accordion .accordion__input:checked + .accordion__header {
+    color: black;
+
     background-image: url(icon/close.png);
 }
 
