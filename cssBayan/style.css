@@ -51,57 +51,46 @@ li {
     flex-direction: column;
 }
 
+@media (hover: hover) {
+    ul:hover > .accordion .accordion__input:not(:checked) + .accordion__header {
+        color: black;
+        transition: color 1.5s;
+    }
 
-.item-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    ul:hover > .accordion .accordion__input:hover + .accordion__header img {
+        opacity: 1;
+        transform: rotate(45deg);
+        transition: transform 1.5s;
+    }
+
+    .accordion .accordion__header:hover + .accordion__content,
+    .accordion .accordion__content:hover
+    {
+        height: 50vh;
+    }
+
+    ul:hover > .accordion .accordion__input + .accordion__header img {
+        opacity: 1;
+    }
+
+    ul:hover > .accordion .accordion__input:checked + .accordion__header img {
+        opacity: 1;
+        transform: rotate(45deg);
+        transition: transform 1s;
+    }
+
+    ul:hover > .accordion .accordion__input:checked + .accordion__header {
+        color: #fc0097;
+        transition: color 1.5s;
+    }
 }
 
-.toggle-item:checked ~
-.item-content {
-    width: 100%;
-    max-height: 60%;
-}
-
-.toggle-item:hover ~ .item-content img {
-    transform: scale(1);
-}
-
-.toggle-item:hover ~
-.item-content {
-    max-height: 60%;
-    margin: 1rem auto;
-}
-
-ul:hover > .accordion .accordion__input:not(:checked) + .accordion__header {
-    color: black;
-    transition: color 1.5s;
+.accordion .accordion__input:checked + .accordion__header + .accordion__content {
+    height: 50vh;
 }
 
 .accordion__input:checked + .accordion__header, .accordion__input:checked + .accordion__header + .accordion__content {
     animation: animation 1s backwards;
-}
-
-ul:hover > .accordion .accordion__input:checked + .accordion__header {
-    color: #fc0097;
-    transition: color 1.5s;
-}
-
-ul:hover > .accordion .accordion__input + .accordion__header img {
-    opacity: 1;
-}
-
-ul:hover > .accordion .accordion__input:hover + .accordion__header img {
-    opacity: 1;
-    transform: rotate(45deg);
-    transition: transform 1.5s;
-}
-
-ul:hover > .accordion .accordion__input:checked + .accordion__header img {
-    opacity: 1;
-    transform: rotate(45deg);
-    transition: transform 1s;
 }
 
 .accordion .accordion__header {
@@ -138,10 +127,6 @@ ul:hover > .accordion .accordion__input:checked + .accordion__header img {
     padding: 1rem;
 }
 
-.accordion .accordion__header:hover + .accordion__content, .accordion .accordion__input:checked + .accordion__header + .accordion__content {
-    height: 50vh;
-}
-
 
 @media (max-width: 1180px) and (min-width: 319px) {
 
@@ -152,6 +137,7 @@ ul:hover > .accordion .accordion__input:checked + .accordion__header img {
     .accordion .accordion__content {
         cursor: initial;
     }
+
 }
 
 @media (max-width: 1180px) and (min-width: 570px) {
