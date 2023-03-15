@@ -154,5 +154,6 @@ li {
 
     .accordion .accordion__content > img {
         width: 100%;
+        object-fit: contain;
     }
 }
